@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+
+	<filter>
+		<display-name>Stripes Filter</display-name>
+		<filter-name>StripesFilter</filter-name>
+		<filter-class>net.sourceforge.stripes.controller.StripesFilter</filter-class>
+		<init-param>
+			<param-name>ActionBeanContext.Class</param-name>
+			<param-value>com.caiubi.action.CaiubiActionBeanContext</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ActionResolver.Packages</param-name>
+			<param-value>
+				com.caiubi.action,
+				com.caiubi.incometax.action
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>Extension.Packages</param-name>
+			<param-value>
+				com.caiubi.controller,
+				com.caiubi.incometax.validation
+			</param-value>
+		</init-param>
+		<init-param>
+			 <param-name>PopulationStrategy.Class</param-name>
+			 <param-value>net.sourceforge.stripes.tag.BeanFirstPopulationStrategy</param-value>
+		</init-param>
+		<!-- init-param> 
+			<param-name>ActionResolver.Class</param-name> 
+			<param-value>com.caiubi.action.controller.CaiubbiNameBasedActionResolver</param-value> 
+		</init-param -->
+		<!-- init-param>
+		    <param-name>ExceptionHandler.Class</param-name>
+		    <param-value>com.caiubi.action.exception.CaiubbiExceptionHandler</param-value>
+		</init-param-->
+		<init-param>
+			<param-name>LocalePicker.Locales</param-name>
+			<param-value>pt_BR:UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>StripesFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>StripesFilter</filter-name>
+		<servlet-name>StripesDispatcher</servlet-name>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<!-- SERVLET -->
+	
+	<servlet>
+		<servlet-name>StripesDispatcher</servlet-name>
+		<servlet-class> net.sourceforge.stripes.controller.DispatcherServlet </servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StripesDispatcher</servlet-name>
+		<url-pattern>/caiubi/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- WELCOME-FILE-LIST -->
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+
+.f4m label, .f4m input[type=submit] {
+	cursor: pointer;
+}
+.f4m fieldset {
+	border: 0px;		
+}
+.f4m fieldset legend {
+	font-size: 180%;
+	margin: 0;
+	padding: 10px 0 0;	
+}
+.f4m fieldset div.info {
+	border-bottom: 1px dotted #ccc;
+	color: #555;
+	line-height: 150%;
+	padding: 0 0 10px 0;
+}
+.f4m fieldset ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	
+}
+.f4m fieldset li {
+	border-bottom: 1px solid #efefef;
+	padding: 20px 0;
+}
+.f4m fieldset li.action {
+	border-bottom: 0 none;
+	/*
+	background-color: #efefef;
+	margin-top: 10px;
+	padding-right: 10px;
+	*/
+}
+.f4m fieldset li label {
+	float: left;
+	font-weight: bold;
+	width: 30%;
+}
+
+.f4m fieldset li input.large, .f4m fieldset li select.large {
+	border: 1px solid #aaa;
+	background: none repeat scroll 0 0 #fff;
+	margin: 0 10px;
+	padding: 4px 2px;
+	width: 45% !important;
+}
+
+.f4m fieldset li select.large {
+	width: 46% !important;
+}
+
+.f4m fieldset li label.error {
+	color: #c00;
+}
+
+.f4m fieldset li input.error, .f4m fieldset li select.error {
+	border-color: #c00;
+}
+
+.f4m fieldset li input.submit, .f4m fieldset li .button {
+	background-color: #0f67a1;
+	border: 1px solid #369;
+	color: #fff;
+	font-size: 100%;
+	letter-spacing: 1px;
+	padding: 10px 22px;
+	text-shadow: 1px 1px 0 #333;
+}

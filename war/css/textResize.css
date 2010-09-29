@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+#textResize {
+	float: right;
+	padding:5px;
+}
+
+#textResize span {
+	font-size: 100%;
+}
+
+#textResize span:hover {
+	color: #333;
+}

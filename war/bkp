@@ -1,0 +1,22 @@
+<li>
+							<stripes:label for="income.inss" />
+							<stripes:text id="income.inss" name="income.inss" class="large right" readonly="readonly"/>
+						</li>
+						<li>
+							<stripes:label for="income.irpf" />
+							<stripes:text id="income.irpf" name="income.irpf" class="large right" readonly="readonly"/>
+						</li>
+						<li>
+							<stripes:label for="income.netIncome" />
+							<stripes:text id="income.netIncome" name="income.netIncome" class="large right" readonly="readonly"/>
+						</li>
+						<li>
+							<label>
+								<fmt:message key="graph" />
+							</label>
+							<img src="${actionBean.chart}" />
+						</li>
+						<li>
+							<stripes:label for="income.fgts" />
+							<stripes:text id="income.fgts" name="income.fgts" class="large right" readonly="readonly"/>
+						</li>

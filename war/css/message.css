@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+/* STRUCTURE */
+div.message {
+	border: 1px solid;
+	margin: 10px auto;
+	overflow: auto;
+	text-align: left;
+	width: 85%;
+}
+
+div.message > div.icon {
+	background: url("/img/sprite.png") no-repeat scroll;
+	margin: 10px;
+	height: 32px;
+	width: 32px;
+}
+
+div.message h2 {
+	font-size: 100%;
+}
+
+div.message > div.icon, div.message > div.detail {
+	float: left;
+}
+
+div.message > div.detail {
+	width: 85%;
+}
+
+div.message > div.detail ol {
+	list-style-type: decimal;
+}
+
+div.message > div.detail ol li {
+	border: 0px;
+	font-size: 90%;
+	margin: 10px 0 10px 20px;
+	padding: 10px;
+}
+
+/* STYLE  */
+div.error {
+	background-color: #ffdfdf;	
+	border-color: #c00;
+}
+div.error > div.icon {
+	background-position: 0 -32px;
+}
+
+div.error > div.detail ol li {
+	background-color: #f6bec1;
+}
+
+div.ok {
+	background: #c8ffbf;
+	border-color: #a2ef95;
+}
+
+div.ok > div.detail ol {
+	list-style-type: none;
+}
