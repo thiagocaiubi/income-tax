@@ -8,7 +8,7 @@ import com.caiubi.shared.PercentAmount;
 
 public class IRRF implements Tax {
 	
-	private MonetaryAmount irpf =  MonetaryAmount.ZERO;
+	private MonetaryAmount irrf =  MonetaryAmount.ZERO;
 	private MonetaryAmount baseSalary = MonetaryAmount.ZERO;
 	private PercentAmount baseAliquot = PercentAmount.ZERO;
 	private MonetaryAmount deductInstallment = MonetaryAmount.ZERO;
@@ -29,7 +29,7 @@ public class IRRF implements Tax {
 		final MonetaryAmount xyz = new MonetaryAmount(dependents).multiply(aliquot.getDependent());
 		final MonetaryAmount subtract2 = subtract.subtract(xyz);
 		final MonetaryAmount multiply = baseAliquot.of(subtract2);
-		irpf = multiply.subtract(deductInstallment).max(MonetaryAmount.ZERO);
+		irrf = multiply.subtract(deductInstallment).max(MonetaryAmount.ZERO);
 	}
 	
 	public PercentAmount getBaseAliquot() {
@@ -41,7 +41,7 @@ public class IRRF implements Tax {
 	}
 
 	public MonetaryAmount getValue() {
-		return irpf;
+		return irrf;
 	}
 	
 	public MonetaryAmount getDeductInstallment() {
