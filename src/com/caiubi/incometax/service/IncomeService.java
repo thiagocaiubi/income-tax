@@ -1,4 +1,4 @@
-package com.caiubi.incometax.vo;
+package com.caiubi.incometax.service;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
 
+import com.caiubi.incometax.vo.Income;
 import com.caiubi.incometax.vo.tax.INSS;
 import com.caiubi.shared.MonetaryAmount;
 import com.caiubi.shared.PercentAmount;
