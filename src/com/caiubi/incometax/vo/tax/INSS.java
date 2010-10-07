@@ -9,7 +9,7 @@ import com.caiubi.shared.MonetaryAmountRange;
 import com.caiubi.shared.PercentAmount;
 
 public class INSS implements Tax {
-	
+
 	private MonetaryAmount inss =  MonetaryAmount.ZERO;
 	private MonetaryAmount baseSalary = MonetaryAmount.ZERO;
 	private PercentAmount baseAliquot = PercentAmount.ZERO;
@@ -23,7 +23,6 @@ public class INSS implements Tax {
 				break;
 			} else if (grossIncome.isGreaterThan(range)) {
 				baseSalary = range.getEnd();
-				break;
 			}
 		}
 		final MonetaryAmount salary = baseAliquot.of(grossIncome);

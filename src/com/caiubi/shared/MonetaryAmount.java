@@ -25,7 +25,7 @@ public class MonetaryAmount extends Amount<BigDecimal> {
 	@Override
 	public BigDecimal getValue() {
 		BigDecimal value = super.getValue();
-		return value.setScale(2, RoundingMode.CEILING);
+		return value.setScale(2, RoundingMode.HALF_EVEN);
 	}
 	
 	public MonetaryAmount add(MonetaryAmount value) {

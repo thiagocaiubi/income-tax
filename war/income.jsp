@@ -51,13 +51,13 @@
 				<stripes:messages />
 				<ol>
 					<li>
-						<stripes:label for="income.grossIncome"/>
-						<stripes:text id="income.grossIncome" name="income.grossIncome" class="large right" tabindex="1" />
+						<stripes:label for="grossIncome"/>
+						<stripes:text id="grossIncome" name="grossIncome" class="large right" tabindex="1" />
 						<strong class="red">*</strong>
 					</li>
 					<li>
-						<stripes:label for="income.dependents" />
-						<stripes:select id="income.dependents" name="income.dependents" class="large" tabindex="2" >
+						<stripes:label for="dependent" />
+						<stripes:select id="dependent" name="dependent" class="large" tabindex="2" >
 							<stripes:options-collection collection="${actionBean.dependents}"/>
 						</stripes:select>
 						<input id="dependents.text" name="" type="text" class="large right" tabindex="3" style="display: none;" />
@@ -67,7 +67,7 @@
 						<stripes:submit id="calculate" name="calculate" class="submit round" tabindex="4"/>
 					</li>
 				</ol>
-				<c:if test="${actionBean.income.calculated}">
+				<c:if test="${actionBean.income != null}">
 					<div>
 						<table class="result">
 							<caption class="center">Descontos sobre salário</caption>
@@ -135,7 +135,7 @@
 	<script type="text/javascript" src="/lib/priceFormat.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#income\\.grossIncome').priceFormat({
+			$('#grossIncome').priceFormat({
 			    prefix: 'R$ ',
 			    centsSeparator: ',',
 			    thousandsSeparator: '.'

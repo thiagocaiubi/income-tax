@@ -3,7 +3,6 @@ package com.caiubi.incometax.vo;
 import java.io.Serializable;
 
 import com.caiubi.incometax.vo.aliquot.Aliquot;
-import com.caiubi.incometax.vo.aliquot.Aliquot2010;
 import com.caiubi.incometax.vo.tax.FGTS;
 import com.caiubi.incometax.vo.tax.INSS;
 import com.caiubi.incometax.vo.tax.IRRF;
@@ -15,32 +14,31 @@ public class Income implements Serializable {
 	
 	public static final MonetaryAmount MIN_INCOME = new MonetaryAmount(510);
 	
-	private Aliquot aliquot = new Aliquot2010();
-	private MonetaryAmount grossIncome = MonetaryAmount.ZERO;
-	private int dependents = 0;
+	private Aliquot aliquot;
+	private MonetaryAmount grossIncome;
+	private int dependents;
 	
 	private INSS inss;
 	private IRRF irrf;
 	private FGTS fgts;
 	private MonetaryAmount netIncome;
 	
-	private boolean calculated = false;
-	
 	public Income(MonetaryAmount grossIncome, int dependents, Aliquot aliquot) {
 		if (grossIncome == null)
 			throw new IllegalArgumentException("Gross income can't be null!");
+		this.grossIncome = grossIncome;
 		if (aliquot == null)
 			throw new NullPointerException("Aliquot can't be null!");
-		this.grossIncome = grossIncome;
+		this.aliquot = aliquot;
 		this.dependents = dependents;
+		calculate();
 	}
 
-	public void calculate() {
+	private void calculate() {
 		inss = new INSS(grossIncome, aliquot);
 		irrf = new IRRF(grossIncome, dependents, inss, aliquot);
 		fgts = new FGTS(grossIncome, aliquot);
 		netIncome = grossIncome.subtract(inss.getValue()).subtract(irrf.getValue());
-		calculated = true;
 	}
 	
 	public MonetaryAmount getGrossIncome() {
@@ -62,31 +60,22 @@ public class Income implements Serializable {
 	}
 
 	public MonetaryAmount getNetIncome() {
-		validateIncomeState();
 		return netIncome;
 	}
 	
 	public INSS getInss() {
-		validateIncomeState();
 		return inss;
 	}
 	
 	public IRRF getIrrf() {
-		validateIncomeState();
 		return irrf;
 	}
 	
 	public FGTS getFgts() {
-		validateIncomeState();
 		return fgts;
 	}
 	
 	public boolean isCalculated() {
-		return calculated;
-	}
-	
-	private void validateIncomeState() {
-		if (!calculated)
-			throw new IllegalStateException("Income must be calculated first!");
+		return MonetaryAmount.ZERO.isLessOrEqualThan(netIncome);
 	}
 }
