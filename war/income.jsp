@@ -17,25 +17,7 @@
 	</c:if>
 	<link rel="stylesheet" type="text/css" href="/css/f4m.css" />
 	<link rel="stylesheet" type="text/css" href="/css/message.css" />
-	<style type="text/css">
-		table.result {
-			width: 100%;
-		}
-		table.result caption {
-			background-color: #69c;
-			color: white;
-			font-size: 16px;
-			padding: 10px;
-		}
-		table.result thead {
-			background-color: #a3c2e1;
-			font-size: 14px;
-		}
-		table.result td {
-			border: 1px solid #ccc;
-			padding: 5px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/grid.css" />
 </head>
 <body>
 	<div id="container" class="round">
@@ -68,7 +50,7 @@
 				</ol>
 				<c:if test="${actionBean.income != null}">
 					<div>
-						<table class="result">
+						<table class="grid">
 							<caption class="center">Descontos sobre salário</caption>
 							<thead>
 								<tr>

@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+table.grid {
+	width: 100%;
+}
+table.grid caption {
+	background-color: #69c;
+	color: white;
+	font-size: 16px;
+	padding: 10px;
+}
+table.grid thead {
+	background-color: #a3c2e1;
+	font-size: 14px;
+}
+table.grid td {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
