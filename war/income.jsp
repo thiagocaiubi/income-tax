@@ -123,6 +123,20 @@
 										<img src="${actionBean.chart}" />
 									</td>
 								</tr>
+								<tr>
+									<td>
+										FGTS
+									</td>
+									<td class="right">
+										${actionBean.income.fgts.baseSalary}
+									</td>
+									<td class="right">
+										${actionBean.income.fgts.baseAliquot}
+									</td>
+									<td class="right">
+										${actionBean.income.fgts.value}
+									</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>		
