@@ -56,11 +56,10 @@
 						<strong class="red">*</strong>
 					</li>
 					<li>
-						<stripes:label for="dependent" />
-						<stripes:select id="dependent" name="dependent" class="large" tabindex="2" >
-							<stripes:options-collection collection="${actionBean.dependents}"/>
+						<stripes:label for="dependents" />
+						<stripes:select id="dependents" name="dependents" class="large" tabindex="2" >
+							<stripes:options-collection collection="${actionBean.dependentsOptions}"/>
 						</stripes:select>
-						<input id="dependents.text" name="" type="text" class="large right" tabindex="3" style="display: none;" />
 						<strong class=red>*</strong>
 					</li>
 					<li class="action right round">

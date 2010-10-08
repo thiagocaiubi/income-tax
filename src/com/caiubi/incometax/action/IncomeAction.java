@@ -18,13 +18,13 @@ public class IncomeAction extends CaiubiActionBean {
 	
 	private static final String INCOME = "/income.jsp";
 
-	private final Integer[] dependents = new Integer[]{0,1,2,3,4,5,6,7,8,9,10};
+	private final Integer[] dependentsOptions = new Integer[]{0,1,2,3,4,5,6,7,8,9,10};
 	
 	@Validate(required=true)
 	private MonetaryAmount grossIncome;
 	
 	@Validate(required=true)
-	private int dependent;
+	private int dependents;
 	
 	private Income income;
 	private String chart;
@@ -36,7 +36,8 @@ public class IncomeAction extends CaiubiActionBean {
 	}
 	
 	public Resolution calculate() {
-		Income income = new Income(grossIncome, dependent, new Aliquot2010());
+		System.out.println("yeah");
+		Income income = new Income(grossIncome, dependents, new Aliquot2010());
 		String chart = new IncomeChart(income, getContext().getLocale()).toString();
 		setIncome(income);
 		setChart(chart);
@@ -50,10 +51,6 @@ public class IncomeAction extends CaiubiActionBean {
 
 	public void setIncome(Income income) {
 		this.income = income;
-	}
-
-	public Integer[] getDependents() {
-		return dependents;
 	}
 
 	public String getChart() {
@@ -72,11 +69,15 @@ public class IncomeAction extends CaiubiActionBean {
 		this.grossIncome = grossIncome;
 	}
 
-	public int getDependent() {
-		return dependent;
+	public int getDependents() {
+		return dependents;
 	}
 
-	public void setDependent(int dependent) {
-		this.dependent = dependent;
+	public void setDependents(int dependent) {
+		this.dependents = dependent;
+	}
+	
+	public Integer[] getDependentsOptions() {
+		return dependentsOptions;
 	}
 }
