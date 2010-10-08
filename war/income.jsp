@@ -51,19 +51,19 @@
 				<c:if test="${actionBean.income != null}">
 					<div>
 						<table class="grid">
-							<caption class="center">Descontos sobre salário</caption>
+							<caption class="center"><fmt:message key="income.discounts" /></caption>
 							<thead>
 								<tr>
 									<td></td>
-									<td>Salário base</td>
-									<td>Alíquota</td>
-									<td>Valor</td>
+									<td><fmt:message key="base.income" /></td>
+									<td><fmt:message key="aliquot" /></td>
+									<td><fmt:message key="value" /></td>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>
-										INSS
+										<fmt:message key="income.inss" />
 									</td>
 									<td class="right">
 										${actionBean.income.inss.baseSalary}
@@ -77,7 +77,7 @@
 								</tr>
 								<tr>
 									<td>
-										IRRF
+										<fmt:message key="income.irrf" />
 									</td>
 									<td class="right">
 										${actionBean.income.irrf.baseSalary}
@@ -91,7 +91,7 @@
 								</tr>
 								<tr style="background-color: #ccc;">
 									<td>
-										Salário líquido
+										<fmt:message key="income.netIncome" />
 									</td>
 									<td colspan="3" class="right">
 										${actionBean.income.netIncome}
@@ -99,7 +99,7 @@
 								</tr>
 								<tr>
 									<td>
-										Gráfico
+										<fmt:message key="graph" />
 									</td>
 									<td colspan="3" class="center">
 										<img src="${actionBean.chart}" />
@@ -107,7 +107,7 @@
 								</tr>
 								<tr>
 									<td>
-										FGTS
+										<fmt:message key="income.fgts" />
 									</td>
 									<td class="right">
 										${actionBean.income.fgts.baseSalary}
