@@ -36,7 +36,6 @@ public class IncomeAction extends CaiubiActionBean {
 	}
 	
 	public Resolution calculate() {
-		System.out.println("yeah");
 		Income income = new Income(grossIncome, dependents, new Aliquot2010());
 		String chart = new IncomeChart(income, getContext().getLocale()).toString();
 		setIncome(income);
