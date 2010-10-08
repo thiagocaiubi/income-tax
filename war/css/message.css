@@ -28,6 +28,10 @@ div.message > div.detail {
 	width: 85%;
 }
 
+div.message > div.detail h2 {
+	margin-top: 10px;
+}
+
 div.message > div.detail ol {
 	list-style-type: decimal;
 }
