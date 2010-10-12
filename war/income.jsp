@@ -18,6 +18,19 @@
 	<link rel="stylesheet" type="text/css" href="/css/f4m.css" />
 	<link rel="stylesheet" type="text/css" href="/css/message.css" />
 	<link rel="stylesheet" type="text/css" href="/css/grid.css" />
+	<style type="text/css">
+		.spinner{
+			direction: rtl;
+			text-indent: 15px;
+		}
+		.spinner-up, .spinner-down{
+			position: absolute;
+			margin-left: -30px;
+		}
+		.spinner-down{
+			margin-top: 10px;
+		}
+	</style>
 </head>
 <body>
 	<div id="container" class="round">
@@ -39,13 +52,15 @@
 					</li>
 					<li>
 						<stripes:label for="dependents" />
-						<stripes:select id="dependents" name="dependents" class="large" tabindex="2" >
-							<stripes:options-collection collection="${actionBean.dependentsOptions}"/>
-						</stripes:select>
+						<span>
+							<stripes:text id="dependents" name="dependents" class="large" tabindex="2" />
+							<img id="up" src="/img/up.png"/>
+							<img id="down" src="/img/down.png" />
+						</span>
 						<strong class=red>*</strong>
 					</li>
 					<li class="action right round">
-						<stripes:submit id="calculate" name="calculate" class="submit round" tabindex="4"/>
+						<stripes:submit id="calculate" name="calculate" class="submit round" tabindex="3"/>
 					</li>
 				</ol>
 				<c:if test="${actionBean.income != null}">
@@ -128,6 +143,7 @@
 	</div>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/lib/priceFormat.js"></script>
+	<script type="text/javascript" src="/js/jquery.spinner.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#grossIncome').priceFormat({
@@ -135,6 +151,11 @@
 			    centsSeparator: ',',
 			    thousandsSeparator: '.'
 			}).focus();
+			$('#dependents').spinner({
+				up: '#up',
+				down: '#down',
+				min: 0
+			});
 		});
 	 </script>
 	 <script type="text/javascript">

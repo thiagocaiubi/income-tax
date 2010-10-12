@@ -18,8 +18,6 @@ public class IncomeAction extends CaiubiActionBean {
 	
 	private static final String INCOME = "/income.jsp";
 
-	private final Integer[] dependentsOptions = new Integer[]{0,1,2,3,4,5,6,7,8,9,10};
-	
 	@Validate(required=true)
 	private MonetaryAmount grossIncome;
 	
@@ -47,7 +45,7 @@ public class IncomeAction extends CaiubiActionBean {
 	public Income getIncome() {
 		return income;
 	}
-
+	
 	public void setIncome(Income income) {
 		this.income = income;
 	}
@@ -74,9 +72,5 @@ public class IncomeAction extends CaiubiActionBean {
 
 	public void setDependents(int dependent) {
 		this.dependents = dependent;
-	}
-	
-	public Integer[] getDependentsOptions() {
-		return dependentsOptions;
 	}
 }
