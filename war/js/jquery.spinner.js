@@ -41,7 +41,6 @@
 			function getSpinner(e){
 				var code = e.keyCode ? e.keyCode : e.which;
 				var spinner = allowedKeys[code];
-				console.log(allowedKeys[code]);
 				if(spinner === undefined){
 					e.preventDefault();
 					e.stopPropagation();
