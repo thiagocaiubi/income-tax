@@ -61,12 +61,13 @@
 				return val;
 			}
 			
-			function handleControl(element, step, klass){
-				if(element){
-					element.addClass(klass).click(function(e){
+			function handleControl(control, step, klass){
+				if(control){
+					control.addClass(klass).click(function(e){
 						e.preventDefault();
 						e.stopPropagation();
 						updateSpinner(step);
+						element.focus();
 					});
 				}
 			}
