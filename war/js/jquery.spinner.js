@@ -1,3 +1,7 @@
+/**
+ * Spinner jQuery Plugin
+ * author thiago {dot} caiubi {at} gmail {dot} com
+ */
 (function(){
 	$.fn.spinner = function(settings){
 		settings = $.extend({
