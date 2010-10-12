@@ -19,7 +19,7 @@ public class IncomeAction extends CaiubiActionBean {
 	private static final String INCOME = "/income.jsp";
 
 	@Validate(required=true)
-	private MonetaryAmount grossIncome;
+	private MonetaryAmount grossIncome = Income.MIN_INCOME;
 	
 	@Validate(required=true)
 	private int dependents;
