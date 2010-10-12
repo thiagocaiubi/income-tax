@@ -11,22 +11,22 @@
 			max: undefined,
 			step: 1
 		}, settings || {});
-		
+		var min = 1*settings.min;
+		var max = 1*settings.max;
+		var up = $(settings.up);
+		var down = $(settings.down);
+		var step = settings.step;
+		var allowedKeys = {
+			9:0, //tab
+			13:0, //enter
+			37:0, //left
+			38:step, //up
+			39:0, //right
+			40:-1*step //down
+		};
+			
 		return this.each(function(){
 			var element = $(this).addClass('spinner').attr('autocomplete', 'off');
-			var allowedKeys = {
-				9:0, //tab
-				13:0, //enter
-				37:0, //left
-				38:step, //up
-				39:0, //right
-				40:-1*step //down
-			};
-			var min = 1*settings.min;
-			var max = 1*settings.max;
-			var up = $(settings.up);
-			var down = $(settings.down);
-			var step = settings.step;
 			
 			handleControl(up, step, 'spinner-up');
 			handleControl(down, -1*step, 'spinner-down');
@@ -41,6 +41,7 @@
 			function getSpinner(e){
 				var code = e.keyCode ? e.keyCode : e.which;
 				var spinner = allowedKeys[code];
+				console.log(allowedKeys[code]);
 				if(spinner === undefined){
 					e.preventDefault();
 					e.stopPropagation();
