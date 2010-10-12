@@ -1,0 +1,12 @@
+.spinner{
+	direction: rtl;
+	text-indent: 15px;
+}
+.spinner-up, .spinner-down{
+	cursor: pointer;
+	position: absolute;
+	margin-left: -30px;
+}
+.spinner-down{
+	margin-top: 10px;
+}

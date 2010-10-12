@@ -18,19 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/f4m.css" />
 	<link rel="stylesheet" type="text/css" href="/css/message.css" />
 	<link rel="stylesheet" type="text/css" href="/css/grid.css" />
-	<style type="text/css">
-		.spinner{
-			direction: rtl;
-			text-indent: 15px;
-		}
-		.spinner-up, .spinner-down{
-			position: absolute;
-			margin-left: -30px;
-		}
-		.spinner-down{
-			margin-top: 10px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="/css/jquery.spinner.css" />
 </head>
 <body>
 	<div id="container" class="round">
