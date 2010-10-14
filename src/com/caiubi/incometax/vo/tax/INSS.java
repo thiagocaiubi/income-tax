@@ -3,7 +3,6 @@ package com.caiubi.incometax.vo.tax;
 import java.util.Map.Entry;
 
 import com.caiubi.incometax.vo.aliquot.Aliquot;
-import com.caiubi.incometax.vo.aliquot.Aliquot2010;
 import com.caiubi.shared.MonetaryAmount;
 import com.caiubi.shared.MonetaryAmountRange;
 import com.caiubi.shared.PercentAmount;
@@ -39,10 +38,5 @@ public class INSS implements Tax {
 
 	public PercentAmount getBaseAliquot() {
 		return baseAliquot;
-	}
-	
-	public static void main(String[] args) {
-		final INSS inss = new INSS(new MonetaryAmount(1500), new Aliquot2010());
-		System.out.println(inss.getBaseAliquot() + " - " + inss.getBaseSalary());
 	}
 }
