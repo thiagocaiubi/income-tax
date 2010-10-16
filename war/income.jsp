@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/jquery.spinner.css" />
 </head>
 <body>
-	<div id="container" class="round">
+	<div id="container">
 		<stripes:form beanclass="com.caiubi.incometax.action.IncomeAction" class="f4m">
 			<fieldset>
 				<legend>
@@ -128,6 +128,7 @@
 				</c:if>
 			</fieldset>
 		</stripes:form>
+		<div id="footer"></div>
 	</div>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/lib/priceFormat.js"></script>
