@@ -27,4 +27,41 @@ public class FGTS implements Tax {
 	public MonetaryAmount getValue() {
 		return fgts;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((baseAliquot == null) ? 0 : baseAliquot.hashCode());
+		result = prime * result + ((baseSalary == null) ? 0 : baseSalary.hashCode());
+		result = prime * result + ((fgts == null) ? 0 : fgts.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FGTS other = (FGTS) obj;
+		if (baseAliquot == null) {
+			if (other.baseAliquot != null)
+				return false;
+		} else if (!baseAliquot.equals(other.baseAliquot))
+			return false;
+		if (baseSalary == null) {
+			if (other.baseSalary != null)
+				return false;
+		} else if (!baseSalary.equals(other.baseSalary))
+			return false;
+		if (fgts == null) {
+			if (other.fgts != null)
+				return false;
+		} else if (!fgts.equals(other.fgts))
+			return false;
+		return true;
+	}
 }

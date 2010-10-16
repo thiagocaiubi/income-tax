@@ -47,4 +47,47 @@ public class IRRF implements Tax {
 	public MonetaryAmount getDeductInstallment() {
 		return deductInstallment;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((baseAliquot == null) ? 0 : baseAliquot.hashCode());
+		result = prime * result + ((baseSalary == null) ? 0 : baseSalary.hashCode());
+		result = prime * result + ((deductInstallment == null) ? 0 : deductInstallment.hashCode());
+		result = prime * result + ((irrf == null) ? 0 : irrf.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		IRRF other = (IRRF) obj;
+		if (baseAliquot == null) {
+			if (other.baseAliquot != null)
+				return false;
+		} else if (!baseAliquot.equals(other.baseAliquot))
+			return false;
+		if (baseSalary == null) {
+			if (other.baseSalary != null)
+				return false;
+		} else if (!baseSalary.equals(other.baseSalary))
+			return false;
+		if (deductInstallment == null) {
+			if (other.deductInstallment != null)
+				return false;
+		} else if (!deductInstallment.equals(other.deductInstallment))
+			return false;
+		if (irrf == null) {
+			if (other.irrf != null)
+				return false;
+		} else if (!irrf.equals(other.irrf))
+			return false;
+		return true;
+	}
 }
