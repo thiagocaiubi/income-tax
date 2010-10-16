@@ -1,6 +1,5 @@
 package com.caiubi.incometax.action;
 
-import net.sourceforge.stripes.action.DontValidate;
 import net.sourceforge.stripes.action.ForwardResolution;
 import net.sourceforge.stripes.action.LocalizableMessage;
 import net.sourceforge.stripes.action.Resolution;
@@ -28,7 +27,6 @@ public class IncomeAction extends CaiubiActionBean {
 	private String chart;
 	
 	@Override
-	@DontValidate
 	public Resolution view() {
 		return new ForwardResolution(INCOME);
 	}
