@@ -28,7 +28,7 @@ public class Income implements Serializable {
 			throw new IllegalArgumentException("Gross income can't be null!");
 		this.grossIncome = grossIncome;
 		if (aliquot == null)
-			throw new NullPointerException("Aliquot can't be null!");
+			throw new IllegalArgumentException("Aliquot can't be null!");
 		this.aliquot = aliquot;
 		this.dependents = dependents;
 		calculate();
