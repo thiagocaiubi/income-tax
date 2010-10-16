@@ -45,20 +45,10 @@ public class Income implements Serializable {
 		return grossIncome;
 	}
 	
-	public void setGrossIncome(MonetaryAmount grossIncome) {
-		if (grossIncome == null)
-			throw new NullPointerException("Gross income can not be null!");
-		this.grossIncome = grossIncome;
-	}
-	
 	public int getDependents() {
 		return dependents;
 	}
 	
-	public void setDependents(int dependents) {
-		this.dependents = dependents;
-	}
-
 	public MonetaryAmount getNetIncome() {
 		return netIncome;
 	}
