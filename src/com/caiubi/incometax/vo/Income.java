@@ -68,8 +68,4 @@ public class Income implements Serializable {
 	public Aliquot getAliquot() {
 		return aliquot;
 	}
-	
-	public boolean isCalculated() {
-		return MonetaryAmount.ZERO.isLessOrEqualThan(netIncome);
-	}
 }
