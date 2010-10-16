@@ -14,7 +14,7 @@ public class MonetaryAmountTest {
 	private static final MonetaryAmount TWO = new MonetaryAmount(2);
 	private static final MonetaryAmount THREE = new MonetaryAmount(3);
 	
-	private static final MonetaryAmountRange RANGE = new MonetaryAmountRange(ZERO, TWO);
+	private static final MonetaryAmountRange RANGE = new MonetaryAmountRange(ONE, TWO);
 	
 	@Test
 	public final void testToString() {
@@ -61,16 +61,20 @@ public class MonetaryAmountTest {
 	@Test
 	public final void testMin() {
 		Assert.assertEquals(ZERO, ZERO.min(ONE));
+		Assert.assertEquals(ZERO, ONE.min(ZERO));
 	}
 	
 	@Test
 	public final void testMax() {
 		Assert.assertEquals(ONE, ZERO.max(ONE));
+		Assert.assertEquals(ONE, ONE.max(ZERO));
 	}
 
 	@Test
 	public final void testOf() {
 		Assert.assertEquals(.5f, ONE.of(TWO).floatValue(), 0);
+		Assert.assertEquals(0f, ZERO.of(ONE).floatValue(), 0);
+		Assert.assertEquals(0f, ONE.of(ZERO).floatValue(), 0);
 	}
 
 	@Test
@@ -80,26 +84,37 @@ public class MonetaryAmountTest {
 
 	@Test
 	public final void testIsGreaterOrEqualThan() {
+		Assert.assertTrue(ONE.isGreaterOrEqualThan(ZERO));
 		Assert.assertTrue(ONE.isGreaterOrEqualThan(ONE));
+		Assert.assertFalse(ONE.isGreaterOrEqualThan(TWO));
 	}
 
 	@Test
 	public final void testIsLessThan() {
-		Assert.assertTrue(ONE.isLessThan(TWO));
+		Assert.assertTrue(ZERO.isLessThan(ONE));
+		Assert.assertFalse(ONE.isLessThan(ONE));
+		Assert.assertFalse(TWO.isLessThan(ONE));
 	}
 
 	@Test
 	public final void testIsLessOrEqualThan() {
+		Assert.assertTrue(ZERO.isLessOrEqualThan(ONE));
 		Assert.assertTrue(ONE.isLessOrEqualThan(ONE));
+		Assert.assertFalse(TWO.isLessOrEqualThan(ONE));
 	}
 
 	@Test
 	public final void testIsBetween() {
+		Assert.assertFalse(ZERO.isBetween(RANGE));
 		Assert.assertTrue(ONE.isBetween(RANGE));
+		Assert.assertTrue(new MonetaryAmount(new BigDecimal(1.5)).isBetween(RANGE));
+		Assert.assertTrue(TWO.isBetween(RANGE));
+		Assert.assertFalse(THREE.isBetween(RANGE));
 	}
 
 	@Test
 	public final void testIsGreaterThanMonetaryAmountRange() {
+		Assert.assertFalse(TWO.isGreaterThan(RANGE));
 		Assert.assertTrue(THREE.isGreaterThan(RANGE));
 	}
 }
