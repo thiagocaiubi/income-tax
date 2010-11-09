@@ -1,0 +1,16 @@
+.round {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.red {
+	color: #c00;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}

@@ -4,7 +4,7 @@
 div.message {
 	border: 1px solid;
 	margin: 10px auto;
-	overflow: auto;
+	overflow: hidden;
 	text-align: left;
 	width: 85%;
 }
@@ -41,6 +41,11 @@ div.message > div.detail ol li {
 	font-size: 90%;
 	margin: 10px 0 10px 20px;
 	padding: 10px;
+}
+
+div.message, div.message > div.detail ol li {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
 }
 
 /* STYLE  */

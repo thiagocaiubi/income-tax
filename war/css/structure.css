@@ -31,23 +31,13 @@ html, body {
 	height: 100%;
 }
 
-.round {
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-}
-
-.red {
-	color: #c00;
-}
-
-.center {
-	text-align: center;
-}
-
-.right {
-	text-align: right;
-}
 #footer {
+	background-color: #eee;
+	border: 1px dashed #ccc;
 	clear: both;
-	height: 10px;
+	padding: 10px 0px;
+}
+
+#footer a {
+	color: #369;
 }

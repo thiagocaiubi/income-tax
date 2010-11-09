@@ -2,6 +2,7 @@
 
 table.grid {
 	width: 100%;
+	background-color: #fff;
 }
 table.grid caption {
 	background-color: #69c;

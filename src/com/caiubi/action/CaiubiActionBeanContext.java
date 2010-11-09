@@ -1,6 +1,9 @@
 package com.caiubi.action;
 
 import java.io.Serializable;
+import java.util.logging.Logger;
+
+import com.caiubi.incometax.view.Page;
 
 import net.sourceforge.stripes.action.ActionBeanContext;
 
@@ -8,55 +11,41 @@ public class CaiubiActionBeanContext extends ActionBeanContext implements Serial
 
 	private static final long serialVersionUID = -1482656088898883483L;
 	
+	private static final Logger log = Logger.getLogger(CaiubiActionBeanContext.class.getName());
+	
 	private static final String CAIUBI_CONTEXT = "caiubi.context";
 
 	public CaiubiContext getCaiubiContext() {
-		CaiubiContext caiubiContext = (CaiubiContext) getRequest().getSession().getAttribute(CAIUBI_CONTEXT);
+		CaiubiContext caiubiContext = getFromSession(CAIUBI_CONTEXT);
 		if (caiubiContext == null) {
 			caiubiContext = new CaiubiContext();
 			setCaiubiContext(caiubiContext);
+			log.info("Context created. Session id: " + getRequest().getSession().getId());
 		}
 		return caiubiContext;
 	}
 
-	public void setCaiubiContext(CaiubiContext context) {
-		getRequest().getSession().setAttribute(CAIUBI_CONTEXT, context);
-	}
-	
-	public void logout() {
-		getRequest().getSession().invalidate();
-	}
-	
 	@SuppressWarnings("unchecked")
-	public <T> T getFromSession(String key) {
+	private <T> T getFromSession(String key) {
 		return (T) getRequest().getSession().getAttribute(key);
 	}
-	
-	public void setToSession(String key, Object value) {
-		getRequest().getSession().setAttribute(key, value);
-	}
 
-	@SuppressWarnings("unchecked")
-	public <T> T getFromRequest(String key) {
-		return (T) getRequest().getAttribute(key);
-	}
-	
-	public void setToRequest(String key, Object value) {
-		getRequest().setAttribute(key, value);
+	private void setCaiubiContext(CaiubiContext context) {
+		getRequest().getSession().setAttribute(CAIUBI_CONTEXT, context);
 	}
 	
 	public class CaiubiContext implements Serializable {
 
 		private static final long serialVersionUID = 3419095427561046919L;
 		
-		private boolean mobile;
-		
-		public void setMobile(boolean mobile) {
-			this.mobile = mobile;
+		private String view = Page.INCOME.getDesktop();
+
+		public String getView() {
+			return view;
 		}
 
-		public boolean isMobile() {
-			return mobile;
+		public void setView(String view) {
+			this.view = view;
 		}
 	}
 }

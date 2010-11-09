@@ -1,5 +1,9 @@
 package com.caiubi.incometax.action;
 
+import java.util.logging.Logger;
+
+import net.sourceforge.stripes.action.DontBind;
+import net.sourceforge.stripes.action.DontValidate;
 import net.sourceforge.stripes.action.ForwardResolution;
 import net.sourceforge.stripes.action.LocalizableMessage;
 import net.sourceforge.stripes.action.Resolution;
@@ -15,8 +19,8 @@ import com.caiubi.shared.MonetaryAmount;
 @UrlBinding("/caiubi/income")
 public class IncomeAction extends CaiubiActionBean {
 	
-	private static final String INCOME = "/income.jsp";
-
+	private static final Logger log = Logger.getLogger(IncomeAction.class.getName());
+	
 	@Validate(required=true)
 	private MonetaryAmount grossIncome = Income.MIN_INCOME;
 	
@@ -26,9 +30,15 @@ public class IncomeAction extends CaiubiActionBean {
 	private Income income;
 	private String chart;
 	
+	
 	@Override
+	@DontBind
+	@DontValidate
 	public Resolution view() {
-		return new ForwardResolution(INCOME);
+		final String sessionId = getContext().getRequest().getSession().getId();
+		final String view = getCaiubiContext().getView();
+		log.info("Forwarding resolution to: " + view +". Session id: " + sessionId);
+		return new ForwardResolution(view);
 	}
 	
 	public Resolution calculate() {

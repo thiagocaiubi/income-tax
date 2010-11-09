@@ -1,4 +1,4 @@
-<%@ include file="WEB-INF/template/util.jsp" %>
+<%@ include file="../../WEB-INF/template/util.jsp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -11,10 +11,8 @@
 	<meta name="google-site-verification" content="CAkLG-sq5pL9uF6x7WxEvdGDWlZ--9PTyo-j2Duu9js" />
 	<link rel="shortcut icon" href="/img/favicon.ico" />
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.2/build/cssreset/reset-min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/util.css" />
 	<link rel="stylesheet" type="text/css" href="/css/structure.css" />
-	<c:if test="${actionBean.caiubiContext.mobile}">
-		<link rel="stylesheet" type="text/css" href="/css/mobileStructure.css" />
-	</c:if>
 	<link rel="stylesheet" type="text/css" href="/css/f4m.css" />
 	<link rel="stylesheet" type="text/css" href="/css/message.css" />
 	<link rel="stylesheet" type="text/css" href="/css/grid.css" />
@@ -47,88 +45,94 @@
 						</span>
 						<strong class=red>*</strong>
 					</li>
+					<c:if test="${actionBean.income != null}">
+						<li>
+							<table class="grid" cellspacing="0">
+								<caption class="center"><fmt:message key="income.discounts" /></caption>
+								<thead>
+									<tr>
+										<td></td>
+										<td><fmt:message key="base.income" /></td>
+										<td><fmt:message key="aliquot" /></td>
+										<td><fmt:message key="value" /></td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<fmt:message key="income.inss" />
+										</td>
+										<td class="right">
+											${actionBean.income.inss.baseSalary}
+										</td>
+										<td class="right">
+											${actionBean.income.inss.baseAliquot}
+										</td>
+										<td class="right">
+											${actionBean.income.inss.value}
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<fmt:message key="income.irrf" />
+										</td>
+										<td class="right">
+											${actionBean.income.irrf.baseSalary}
+										</td>
+										<td class="right">
+											${actionBean.income.irrf.baseAliquot}
+										</td>
+										<td class="right">
+											${actionBean.income.irrf.value}
+										</td>
+									</tr>
+									<tr style="background-color: #ccc;">
+										<td>
+											<fmt:message key="income.netIncome" />
+										</td>
+										<td colspan="3" class="right">
+											${actionBean.income.netIncome}
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<fmt:message key="graph" />
+										</td>
+										<td colspan="3" class="center">
+											<img src="${actionBean.chart}" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<fmt:message key="income.fgts" />
+										</td>
+										<td class="right">
+											${actionBean.income.fgts.baseSalary}
+										</td>
+										<td class="right">
+											${actionBean.income.fgts.baseAliquot}
+										</td>
+										<td class="right">
+											${actionBean.income.fgts.value}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</li>		
+					</c:if>
 					<li class="action right round">
 						<stripes:submit id="calculate" name="calculate" class="submit round" tabindex="3"/>
 					</li>
 				</ol>
-				<c:if test="${actionBean.income != null}">
-					<div>
-						<table class="grid">
-							<caption class="center"><fmt:message key="income.discounts" /></caption>
-							<thead>
-								<tr>
-									<td></td>
-									<td><fmt:message key="base.income" /></td>
-									<td><fmt:message key="aliquot" /></td>
-									<td><fmt:message key="value" /></td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<fmt:message key="income.inss" />
-									</td>
-									<td class="right">
-										${actionBean.income.inss.baseSalary}
-									</td>
-									<td class="right">
-										${actionBean.income.inss.baseAliquot}
-									</td>
-									<td class="right">
-										${actionBean.income.inss.value}
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<fmt:message key="income.irrf" />
-									</td>
-									<td class="right">
-										${actionBean.income.irrf.baseSalary}
-									</td>
-									<td class="right">
-										${actionBean.income.irrf.baseAliquot}
-									</td>
-									<td class="right">
-										${actionBean.income.irrf.value}
-									</td>
-								</tr>
-								<tr style="background-color: #ccc;">
-									<td>
-										<fmt:message key="income.netIncome" />
-									</td>
-									<td colspan="3" class="right">
-										${actionBean.income.netIncome}
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<fmt:message key="graph" />
-									</td>
-									<td colspan="3" class="center">
-										<img src="${actionBean.chart}" />
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<fmt:message key="income.fgts" />
-									</td>
-									<td class="right">
-										${actionBean.income.fgts.baseSalary}
-									</td>
-									<td class="right">
-										${actionBean.income.fgts.baseAliquot}
-									</td>
-									<td class="right">
-										${actionBean.income.fgts.value}
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>		
-				</c:if>
 			</fieldset>
 		</stripes:form>
-		<div id="footer"></div>
+		<div id="footer" class="center">
+			View mode: 
+			<stripes:link beanclass="com.caiubi.incometax.action.ViewAction" event="mobile">Mobile</stripes:link>
+			|
+			<stripes:link beanclass="com.caiubi.incometax.action.ViewAction" event="desktop">Desktop</stripes:link>
+		</div>
+		<br />
 	</div>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 	<script type="text/javascript" src="/lib/priceFormat.js"></script>
