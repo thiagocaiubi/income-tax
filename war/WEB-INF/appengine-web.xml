@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
 	<application>calculadoraclt</application>
-	<version>snapshot</version>
+	<version>teste</version>
 	
 	<!-- Configure java.util.logging -->
 	<system-properties>

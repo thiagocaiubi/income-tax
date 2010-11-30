@@ -12,11 +12,11 @@ public enum Page {
 		this.mobile = mobile;
 	}
 
-	public String getDesktop() {
+	public String desktop() {
 		return desktop;
 	}
 
-	public String getMobile() {
+	public String mobile() {
 		return mobile;
 	}
 }

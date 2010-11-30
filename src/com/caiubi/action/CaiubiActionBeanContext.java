@@ -3,9 +3,9 @@ package com.caiubi.action;
 import java.io.Serializable;
 import java.util.logging.Logger;
 
-import com.caiubi.incometax.view.Page;
-
 import net.sourceforge.stripes.action.ActionBeanContext;
+
+import com.caiubi.incometax.view.Page;
 
 public class CaiubiActionBeanContext extends ActionBeanContext implements Serializable {
 
@@ -38,7 +38,7 @@ public class CaiubiActionBeanContext extends ActionBeanContext implements Serial
 
 		private static final long serialVersionUID = 3419095427561046919L;
 		
-		private String view = Page.INCOME.getDesktop();
+		private String view = Page.INCOME.desktop();
 
 		public String getView() {
 			return view;
