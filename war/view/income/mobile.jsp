@@ -74,6 +74,13 @@
 		</div>
 	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).bind('mobileinit', function(){
+			$.extend($.mobile, {
+				ajaxFormsEnabled: false
+			});			
+		});
+	</script>
 	<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
 	<script type="text/javascript" src="/lib/priceFormat.js"></script>
 	<script type="text/javascript">
