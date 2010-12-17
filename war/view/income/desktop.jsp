@@ -133,7 +133,7 @@
 		</div>
 		<br />
 	</div>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 	<script type="text/javascript" src="/lib/priceFormat.js"></script>
 	<script type="text/javascript" src="/js/jquery.spinner.js"></script>
 	<script type="text/javascript">

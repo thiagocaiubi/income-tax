@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title><fmt:message key="income.calculator" /></title>
+	<link rel="apple-touch-icon" href="/img/logo.png" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/util.css" />
 	<link rel="stylesheet" type="text/css" href="/css/message.css" />
@@ -72,7 +73,14 @@
 			</div>
 		</div>
 	</div>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).bind('mobileinit', function(){
+			$.extend($.mobile, {
+				ajaxFormsEnabled: false
+			});			
+		});
+	</script>
 	<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
 	<script type="text/javascript" src="/lib/priceFormat.js"></script>
 	<script type="text/javascript">
