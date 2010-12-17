@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title><fmt:message key="income.calculator" /></title>
+	<link rel="apple-touch-icon" href="/img/logo.png" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/util.css" />
 	<link rel="stylesheet" type="text/css" href="/css/message.css" />
