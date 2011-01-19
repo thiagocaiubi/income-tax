@@ -12,7 +12,7 @@ public class Income implements Serializable {
 
 	private static final long serialVersionUID = 3004050262967058997L;
 	
-	public static final MonetaryAmount MIN_INCOME = new MonetaryAmount(510);
+	public static final MonetaryAmount MIN_INCOME = new MonetaryAmount(540);
 	
 	private Aliquot aliquot;
 	private MonetaryAmount grossIncome;
